@@ -13,9 +13,11 @@ def data_expiration(days: int):
 
 """ Función que se encarga de obtener los token mediante la variable data. Recibe un diccionario de datos. """
 def write_token(data: dict):
-    token = encode (payload = {**data, "exp": data_expiration(2)},
-                    key = getenv("SECRET"), algorithm = "HS256")
-    return token.encode("UTF-8")
+    token = encode(payload = {**data, "exp": data_expiration(2)},
+                   key = getenv("SECRET"), algorithm = "HS256")
+    """ Se utiliza decode para poder serializarlo en JSON pues es un objeto de tipo bytes """
+    response = jsonify({"token": token.decode("utf8")})
+    return response
 
 def verify_token(token, output = False):
     try:
