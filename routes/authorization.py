@@ -7,7 +7,7 @@ routes_autorization = Blueprint("routes_autorization", __name__)
 @routes_autorization.route("/login", methods = ["POST"])
 def login():
     data = request.get_json()
-    if data['username'] == "Estela Barajas" and data['password'] == "admin":
+    if data['password'] == "Estela Barajas" and data['username'] == "admin":
         return write_token(data = request.get_json())
     else:
        response = jsonify({"message" : "User not found"})

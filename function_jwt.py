@@ -16,7 +16,7 @@ def write_token(data: dict):
     token = encode(payload = {**data, "exp": data_expiration(2)},
                    key = getenv("SECRET"), algorithm = "HS256")
     """ Se utiliza decode para poder serializarlo en JSON pues es un objeto de tipo bytes """
-    response = jsonify({"token": token.decode("utf8")})
+    response = jsonify({"token": token})
     return response
 
 def verify_token(token, output = False):

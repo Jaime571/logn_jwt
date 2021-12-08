@@ -9,5 +9,6 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 app.register_blueprint(routes_autorization, url_prefix="/api" )
 
 if __name__ == '__main__':
+    """ Carga el entorno virtual de manera automática """
     load_dotenv()
-    app.run(debug = True, port = "4000", host = "localhost")
+    app.run(debug = True, port = "4000", host = "127.0.0.1")
