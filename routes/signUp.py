@@ -118,7 +118,7 @@ class Auxiliar(Resource):
             data = {"tipousuario":"Auxiliar", "username": args["username"], "password": args["password"]}
             #Se manda a llamar al endpoint del server. En caso de que el registro sea exitoso
             #Se manda a llamar al endpoint de creación de token
-            #print(json.dumps(items, indent=3))
+            #print(json.dumps(items, indent=3)) 
             #return checkItems
             
             return write_token(data)

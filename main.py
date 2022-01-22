@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 app = Flask(__name__)
 
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
-with app.app_context():
+#with app.app_context():
     
-    """ Declaración de las Blueprint """
+""" Declaración de las Blueprint """
 app.register_blueprint(routes_autorization, url_prefix="/api")
 app.register_blueprint(signUp, url_prefix="/api/registro")
 
